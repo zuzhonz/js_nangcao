@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Js Nâng cao</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="css/slick.css" />
+    <link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+</head>
+
+
+<style>
+    .header-logo img {
+        width: 250px;
+        height: 90px;
+    }
+    
+    .shop img {
+        height: 210px !important;
+    }
+    
+    .products-slick {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 30px;
+    }
+    
+    .product {
+        width: 250px;
+        margin-left: 20px;
+        margin-bottom: 50px;
+    }
+    
+    .product .product-img {
+        width: 240px;
+    }
+    
+    .product .product-body {
+        height: 230px !important;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+</style>
+
+<body>
+    <!-- HEADER -->
+    <header>
+
+        <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-left">
+                    <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+                    <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+                </ul>
+                <ul class="header-links pull-right">
+                    <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /TOP HEADER -->
+
+        <!-- MAIN HEADER -->
+        <div id="header">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-3">
+                        <div class="header-logo">
+                            <a href="#" class="logo">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqaaTue8tFH4GLIpskCOnImNN1r68yfyRIyQ&usqp=CAU" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /LOGO -->
+
+                    <!-- SEARCH BAR -->
+                    <div class="col-md-6">
+                        <div class="header-search">
+                            <form>
+                                <input class="input" placeholder="Search here">
+                                <button class="search-btn">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /SEARCH BAR -->
+
+                    <!-- ACCOUNT -->
+                    <div class="col-md-3 clearfix">
+                        <div class="header-ctn">
+
+
+                            <!-- Cart -->
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Your Cart</span>
+                                    <div class="qty">3</div>
+                                </a>
+                                <div class="cart-dropdown">
+                                    <div class="cart-list">
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                <img src="./img/product01.png" alt="">
+                                            </div>
+                                            <div class="product-body">
+                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                                <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+                                            </div>
+                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                        </div>
+
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                <img src="./img/product02.png" alt="">
+                                            </div>
+                                            <div class="product-body">
+                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                                <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
+                                            </div>
+                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="cart-summary">
+                                        <small>3 Item(s) selected</small>
+                                        <h5>SUBTOTAL: $2940.00</h5>
+                                    </div>
+                                    <div class="cart-btns">
+                                        <a href="/frontend/cart.html">View Cart</a>
+                                        <a href="/frontend/checkout.html">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Cart -->
+
+                            <!-- Menu Toogle -->
+                            <div class="menu-toggle">
+                                <a href="#">
+                                    <i class="fa fa-bars"></i>
+                                    <span>Menu</span>
+                                </a>
+                            </div>
+                            <!-- /Menu Toogle -->
+                        </div>
+                    </div>
+                    <!-- /ACCOUNT -->
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </div>
+        <!-- /MAIN HEADER -->
+    </header>
+    <!-- /HEADER -->
+
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="/frontend//store.html">Laptops</a></li>
+                    <li><a href="/frontend/store.html">Smartphones</a></li>
+                    <li><a href="/frontend/store.html">Phụ Kiện</a></li>
+                    <li><a href="/frontend/lienhe.html">Liên hệ</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- shop -->
+                <div class="col-md-4 col-xs-6">
+                    <div class="shop">
+                        <div class="shop-img">
+                            <img src="data:image/jpeg;base64,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"
+                                alt="">
+                        </div>
+                        <div class="shop-body">
+                            <h3>Smartphones<br>Collection</h3>
+                            <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /shop -->
+
+                <!-- shop -->
+                <div class="col-md-4 col-xs-6">
+                    <div class="shop">
+                        <div class="shop-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC8in0R4RQEVsEeDY4HRGLjK1GETeoLB5zVA&usqp=CAU" alt="">
+                        </div>
+                        <div class="shop-body">
+                            <h3>Laptops<br>Collection</h3>
+                            <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /shop -->
+
+                <!-- shop -->
+                <div class="col-md-4 col-xs-6">
+                    <div class="shop">
+                        <div class="shop-img">
+                            <img src="data:image/jpeg;base64,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"
+                                alt="">
+                        </div>
+                        <div class="shop-body">
+                            <h3>Phụ kiện <br>Collection</h3>
+                            <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /shop -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+
+                <!-- section title -->
+                <div class="col-md-12">
+                    <div class="section-title">
+                        <h3 class="title">New Products</h3>
+                        <div class="section-nav">
+                            <ul class="section-tab-nav tab-nav">
+                                <li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
+                                <li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
+                                <li><a data-toggle="tab" href="#tab1">Cameras</a></li>
+                                <li><a data-toggle="tab" href="#tab1">Accessories</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /section title -->
+
+                <!-- Products tab & slick -->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="products-tabs">
+                            <!-- tab -->
+                            <div id="tab1" class="tab-pane active">
+                                <div class="products-slick" data-nav="#slick-nav-1">
+                                    <!-- product -->
+
+                                    <!-- /product -->
+
+
+                                </div>
+                                <div id="slick-nav-1" class="products-slick-nav"></div>
+                            </div>
+                            <!-- /tab -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Products tab & slick -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+
+
+
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <!-- top footer -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">About Us</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                            <ul class="footer-links">
+                                <li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Categories</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Hot deals</a></li>
+                                <li><a href="#">Laptops</a></li>
+                                <li><a href="#">Smartphones</a></li>
+                                <li><a href="#">Cameras</a></li>
+                                <li><a href="#">Accessories</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Information</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Orders and Returns</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Service</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">View Cart</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                                <li><a href="#">Track My Order</a></li>
+                                <li><a href="#">Help</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /top footer -->
+
+        <!-- /bottom footer -->
+    </footer>
+    <!-- /FOOTER -->
+
+    <!-- jQuery Plugins -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/index_product.js"></script>
+
+</body>
+
+</html>

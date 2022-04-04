@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Js Nâng cao</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="css/slick.css" />
+    <link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<style>
+    footer {
+        background-color: #1e1e27;
+        margin-top: 50px;
+    }
+    
+    .header-logo img {
+        width: 250px;
+        height: 90px;
+    }
+    
+    .flex {
+        display: flex;
+        background-color: #1e1e27;
+        padding-bottom: 40px;
+        padding-top: 30px;
+    }
+    
+    .flex h4 {
+        font-size: 15px;
+        line-height: 1.6;
+        text-transform: uppercase;
+        color: white;
+        font-weight: bold;
+        padding: 40px 0px;
+    }
+    
+    .flex a {
+        color: #b2b2b2;
+    }
+    
+    .flex li {
+        padding: 10px 0px;
+    }
+    
+    .overlay {
+        background-color: rgba(255, 255, 255, 0.9);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        transform: translateY(-100%);
+        align-items: center;
+        transition: all 0.8s;
+    }
+    
+    .overlay i {
+        position: absolute;
+        font-size: 34px;
+        right: 284px;
+        top: 200px;
+    }
+    
+    .overlay form {
+        width: 700px;
+        height: auto;
+        text-align: center;
+    }
+    
+    .overlay form input {
+        width: 100%;
+        padding: 20px 0px 20px 20px;
+        border: 1px solid #e6e6e6;
+        border-radius: 4px;
+    }
+    
+    .overlay form button {
+        width: 100px;
+        padding: 8px 0px;
+        margin-top: 10px;
+        border-radius: 4px;
+        border: none;
+        background-color: #f74877;
+        color: white;
+        cursor: pointer;
+    }
+    
+    #checkbox:checked~.overlay {
+        transform: translateY(0%);
+        transition: all 0.8s;
+    }
+    
+    .cart {
+        width: 100%;
+        border: 1px solid #e6e6e6;
+    }
+    
+    .title-cart {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding: 15px 0px;
+    }
+    
+    .title-product {
+        width: 30%;
+    }
+    
+    .title-price {
+        width: 20%;
+    }
+    
+    .title-quantity {
+        width: 20%;
+    }
+    
+    .title-total {
+        width: 20%;
+    }
+    
+    .products {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        border-top: 1px solid #e6e6e6;
+        padding: 20px
+    }
+    
+    .content-product {
+        display: flex;
+        align-items: center;
+    }
+    
+    .content-product p {
+        margin-left: 20px;
+    }
+    
+    .product-price {
+        display: flex;
+        align-items: center;
+    }
+    
+    .choose-quantity {
+        display: flex;
+        align-items: center;
+        border: 1px solid #e6e6e6;
+        padding: 10px;
+        border-radius: 4px;
+    }
+    
+    #subtract {
+        width: 35px;
+        height: 20px;
+        border: none;
+        border-radius: 5px;
+        height: 30px;
+    }
+    
+    #add {
+        width: 35px;
+        height: 20px;
+        border: none;
+        border-radius: 5px;
+        height: 30px;
+    }
+    
+    .choose-quantity input {
+        width: 50px;
+        height: 17px;
+        text-align: center;
+        border: none;
+        font-size: 17px;
+        padding-left: 10px;
+    }
+    
+    .title-quantity2 {
+        display: flex;
+        align-items: center;
+    }
+    
+    .title-total {
+        display: flex;
+        align-items: center;
+    }
+    
+    .tong_thanh_toan {
+        font-size: 17px;
+        margin-top: 15px;
+        display: flex;
+    }
+    
+    .tong_thanh_toan span {
+        color: red;
+        margin-left: 5px;
+    }
+    
+    .order {
+        height: 30px;
+        width: 100px;
+        background-color: #f74877;
+        margin-left: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        margin-top: -5px;
+        color: white;
+        border: none;
+    }
+    
+    .order a {
+        color: white;
+    }
+    
+    .form-dat-hang {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+    
+    .form-dat-hang h4 {
+        text-align: center;
+    }
+    
+    .address {
+        width: 600px;
+        margin: 0 auto;
+    }
+    
+    .address input {
+        width: 100%;
+        margin-bottom: 15px;
+        border-radius: 4px;
+        border: 1px solid #e6e6e6;
+        padding: 10px 0px 10px 20px;
+    }
+    
+    .order2 {
+        width: 76.5%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+    
+    .order2 p {
+        color: #333;
+    }
+    
+    .order2 span {
+        color: red
+    }
+    
+    .choose-quantity2 {
+        border: none;
+    }
+</style>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-left">
+                    <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+                    <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+                </ul>
+                <ul class="header-links pull-right">
+                    <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /TOP HEADER -->
+
+        <!-- MAIN HEADER -->
+        <div id="header">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-3">
+                        <div class="header-logo">
+                            <a href="#" class="logo">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqaaTue8tFH4GLIpskCOnImNN1r68yfyRIyQ&usqp=CAU" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /LOGO -->
+
+                    <!-- SEARCH BAR -->
+                    <div class="col-md-6">
+                        <div class="header-search">
+                            <form>
+                                <input class="input" placeholder="Search here">
+                                <button class="search-btn">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /SEARCH BAR -->
+
+                    <!-- ACCOUNT -->
+                    <div class="col-md-3 clearfix">
+                        <div class="header-ctn">
+
+
+                            <!-- Cart -->
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Your Cart</span>
+                                    <div class="qty">3</div>
+                                </a>
+                                <div class="cart-dropdown">
+                                    <div class="cart-list">
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                <img src="./img/product01.png" alt="">
+                                            </div>
+                                            <div class="product-body">
+                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                                <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
+                                            </div>
+                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                        </div>
+
+                                        <div class="product-widget">
+                                            <div class="product-img">
+                                                <img src="./img/product02.png" alt="">
+                                            </div>
+                                            <div class="product-body">
+                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                                <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
+                                            </div>
+                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="cart-summary">
+                                        <small>3 Item(s) selected</small>
+                                        <h5>SUBTOTAL: $2940.00</h5>
+                                    </div>
+                                    <div class="cart-btns">
+                                        <a href="#">View Cart</a>
+                                        <a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Cart -->
+
+                            <!-- Menu Toogle -->
+                            <div class="menu-toggle">
+                                <a href="#">
+                                    <i class="fa fa-bars"></i>
+                                    <span>Menu</span>
+                                </a>
+                            </div>
+                            <!-- /Menu Toogle -->
+                        </div>
+                    </div>
+                    <!-- /ACCOUNT -->
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </div>
+        <!-- /MAIN HEADER -->
+    </header>
+    <!-- /HEADER -->
+
+    <!-- NAVIGATION -->
+
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+
+                <ul class="main-nav nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Laptops</a></li>
+                    <li><a href="#">Smartphones</a></li>
+                    <li><a href="#">Phụ Kiện</a></li>
+                    <li><a href="/frontend/lienhe.html">Liên hệ</a></li>
+                </ul>
+
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="breadcrumb-header">cart Page</h3>
+                    <ul class="breadcrumb-tree">
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /BREADCRUMB -->
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <form class="bg3 p-t-75 p-b-32">
+                <div class="container">
+                    <div class="row">
+                        <div class="cart">
+                            <div class="title-cart">
+                                <div class="title-product" style="font-weight:bold;">
+                                    SẢN PHẨM
+                                </div>
+                                <div class="title-price" style="font-weight:bold;">
+                                    GIÁ TIỀN
+                                </div>
+                                <div class="title-quantity" style="font-weight:bold;">
+                                    SỐ LƯỢNG
+                                </div>
+                                <div class="title-total" style="font-weight:bold;">
+                                    TỔNG TIỀN
+                                </div>
+                            </div>
+                            <div class="show-cart">
+                                <!-- Show cart -->
+                                <div class="products">
+                                    <div class="title-product content-product">
+                                        <img src="" alt="" width="50px">
+                                        <p>Product Name</p>
+                                    </div>
+                                    <div class="title-price product-price">
+                                        <div class="product_price"><span></span></div>
+                                    </div>
+                                    <div class="title-quantity title-quantity2">
+                                        <div class="choose-quantity">
+                                            <button id="subtract" type="button">-</button>
+                                            <input type="number" value="1" id="input">
+                                            <button id="add" type="button">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="title-total" style="font-weight:bold">
+                                        99.999.000 ₫
+                                        <div style="cursor: pointer; margin-left:100px; font-size:25px; color:red;"><i data-id=${item.id} class="fa-solid fa-xmark close"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tong_thanh_toan">
+                            <i class="fas fa-hand-holding-usd"></i> Tổng Thanh Toán: <span>99.999.000 ₫</span>
+                            <div class="order">
+                                <a href="order.html">Đặt Hàng</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+
+    <!-- /NEWSLETTER -->
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <!-- top footer -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">About Us</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                            <ul class="footer-links">
+                                <li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Categories</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">Hot deals</a></li>
+                                <li><a href="#">Laptops</a></li>
+                                <li><a href="#">Smartphones</a></li>
+                                <li><a href="#">Cameras</a></li>
+                                <li><a href="#">Accessories</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Information</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Orders and Returns</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Service</h3>
+                            <ul class="footer-links">
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">View Cart</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                                <li><a href="#">Track My Order</a></li>
+                                <li><a href="#">Help</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+
+    </footer>
+    <!-- /FOOTER -->
+
+    <!-- jQuery Plugins -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/cart.js"></script>
+
+</body>
+
+</html>
